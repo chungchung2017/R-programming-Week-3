@@ -5,7 +5,8 @@
 
 
 best <- function(state, outcome) {
-        ## Read outcome data
+      
+      ## Read outcome data
         data <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
         states <- data$State
         cause <- c("heart attack","heart failure","pneumonia")
@@ -28,13 +29,13 @@ best <- function(state, outcome) {
                   } else if (dataName == cause[3]) {
                                                  col_id <- 23
                   }
-  data.sub <- data[data[,7] == state, ]
-  data.sub2 <- data.sub[,c(2,7,col_id)]
-  data.sub3 <- data.sub2[data.sub2[,3]!="Not Available",]
-  data.sub3[,3] <- as.numeric(data.sub3[,3])
- 
-  data2 <- data.sub3
-  bestrow <- data2[data2[,3] == min(data2[,3]),]
-  as.character(bestrow[1])
+          data.sub <- data[data[,7] == state, ]
+          data.sub2 <- data.sub[,c(2,7,col_id)]
+          data.sub3 <- data.sub2[data.sub2[,3]!="Not Available",]
+          data.sub3[,3] <- as.numeric(data.sub3[,3])
 
-}
+          data2 <- data.sub3
+          bestrow <- data2[data2[,3] == min(data2[,3]),]
+          as.character(bestrow[1])
+
+        }
