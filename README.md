@@ -5,7 +5,7 @@
 
 
       
-      best <- function(state, outcome) {
+      best <- function(state, dataName) {
   
             ## Read outcome data
               data <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
@@ -40,3 +40,4 @@
                 as.character(bestrow[1])
 
         }
+
